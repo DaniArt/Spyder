@@ -66,6 +66,14 @@ Spyder brings modern automation capabilities to these systems.
 
 ---
 
+### 🔥 Getting Started
+
+<p>
+<img src="docs/images/spyder_install">
+</p>
+
+---
+
 ## License
 
 Spyder is licensed under the Apache 2.0 License.
