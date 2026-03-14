@@ -31,6 +31,9 @@ The project is designed for automation engineers working with legacy Windows sys
 Spyder provides the missing tooling for desktop automation similar to what browser DevTools provide for web testing.
 
 ---
+## Spyder Inspector
+
+![Spyder UI](docs/images/spyder-ui.png)
 
 ## Why Spyder
 
