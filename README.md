@@ -69,7 +69,7 @@ Spyder brings modern automation capabilities to these systems.
 ### 🔥 Getting Started
 
 <p>
-<img src="docs/images/spyder_install">
+<img src="docs/images/spyder_install.gif">
 </p>
 
 ---
