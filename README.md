@@ -2,6 +2,9 @@
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 
 Object Inspect for Windows desktop automation
+![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Windows-0078D6)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 <p align="center">
   <h1 align="center">Spyder</h1>
   <p align="center">
