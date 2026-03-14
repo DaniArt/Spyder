@@ -27,8 +27,6 @@
   </a>
 </p>
 
-## Overview
-
 **Spyder** is a modern object inspection tool for **VCL desktop applications**.
 
 It enables reliable UI automation by extracting the **real VCL component hierarchy** directly from application memory.
