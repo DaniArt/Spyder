@@ -1,3 +1,32 @@
+<h1 align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/images/spyder-inverse.svg">
+    <source media="(prefers-color-scheme: light)" srcset=".github/images/spyder.svg">
+    <img width="360" src=".github/images/spyder.svg" alt="Spyder">
+  </picture>
+</h1>
+
+<p align="center">
+
+<a href="https://github.com/YOUR_USERNAME/Spyder/actions">
+<img src="https://img.shields.io/github/actions/workflow/status/YOUR_USERNAME/Spyder/ci.yml?label=build&logo=github">
+</a>
+
+<a href="LICENSE">
+<img src="https://img.shields.io/badge/license-Apache%202.0-blue">
+</a>
+
+<a href="https://github.com/YOUR_USERNAME/Spyder">
+<img src="https://img.shields.io/github/stars/YOUR_USERNAME/Spyder?style=social">
+</a>
+
+<a href="https://github.com/YOUR_USERNAME/Spyder/issues">
+<img src="https://img.shields.io/github/issues/YOUR_USERNAME/Spyder">
+</a>
+
+</p>
+
+
 <p align="center">
   <h1 align="center">Spyder</h1>
   <p align="center">
