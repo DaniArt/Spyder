@@ -5,14 +5,14 @@
   </p>
 </p>
 
+![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Platform](https://img.shields.io/badge/platform-Windows-0078D6)
 <p align="center">
-  ![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
   <img src="https://img.shields.io/badge/platform-Windows-blue">
   <img src="https://img.shields.io/badge/framework-VCL-orange">
   <img src="https://img.shields.io/badge/domain-Test%20Automation-green">
   <img src="https://img.shields.io/badge/status-Development-yellow">
-  ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
-  ![Platform](https://img.shields.io/badge/platform-Windows-0078D6)
 </p>
 
 ---
