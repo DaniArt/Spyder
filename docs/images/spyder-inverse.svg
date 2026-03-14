@@ -1,0 +1,36 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="435" height="165" viewBox="0 0 435 165" xmlns="http://www.w3.org/2000/svg">
+
+<g stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+<path d="M112 60 C100 50 100 38 100 28 C100 18 88 14 72 14"></path>
+<path d="M142 62 C130 50 130 36 130 26 C130 18 140 14 155 14"></path>
+
+<path d="M293 62 C305 50 305 36 305 26 C305 18 295 14 280 14"></path>
+<path d="M323 60 C335 50 335 38 335 28 C335 18 347 14 363 14"></path>
+
+<path d="M112 105 C100 115 100 127 100 137 C100 147 88 151 72 151"></path>
+<path d="M142 103 C130 115 130 129 130 139 C130 147 140 151 155 151"></path>
+
+<path d="M293 103 C305 115 305 129 305 139 C305 147 295 151 280 151"></path>
+<path d="M323 105 C335 115 335 127 335 137 C335 147 347 151 363 151"></path>
+
+</g>
+
+<rect x="130" y="60" width="175" height="45" rx="20" fill="none" stroke="#FFFFFF" stroke-width="8"></rect>
+
+<g fill="#FFFFFF">
+
+<rect x="170" y="70" width="8" height="8" rx="1.5"></rect>
+<rect x="160" y="80" width="8" height="8" rx="1.5"></rect>
+<rect x="170" y="80" width="8" height="8" rx="1.5"></rect>
+<rect x="180" y="80" width="8" height="8" rx="1.5"></rect>
+
+<rect x="240" y="70" width="8" height="8" rx="1.5"></rect>
+<rect x="230" y="80" width="8" height="8" rx="1.5"></rect>
+<rect x="240" y="80" width="8" height="8" rx="1.5"></rect>
+<rect x="250" y="80" width="8" height="8" rx="1.5"></rect>
+
+</g>
+
+</svg>
