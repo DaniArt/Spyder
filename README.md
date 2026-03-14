@@ -54,7 +54,7 @@ Spyder brings modern automation capabilities to these systems.
 
 ---
 
-## Features
+### 🔥 Features
 
 - Deep **VCL component introspection**
 - Automatic **32 / 64 bit process detection**
