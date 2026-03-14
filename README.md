@@ -1,30 +1,37 @@
 <h1 align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/images/spyder-inverse.svg">
-    <source media="(prefers-color-scheme: light)" srcset=".github/images/spyder.svg">
-    <img width="360" src=".github/docs/images/spyder.svg" alt="Spyder">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/images/spyder-inverse.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/images/spyder.svg">
+    <img width="420" src="docs/images/spyder.svg" alt="Spyder">
   </picture>
 </h1>
 
 <p align="center">
-
-<a href="https://github.com/DaniArt/Spyder/actions">
-<img src="https://img.shields.io/github/actions/workflow/status/DaniArt/Spyder/ci.yml?label=build&logo=github">
-</a>
-
-<a href="LICENSE">
-<img src="https://img.shields.io/badge/license-Apache%202.0-blue">
-</a>
-
-<a href="https://github.com/DaniArt/Spyder">
-<img src="https://img.shields.io/github/stars/DaniArt/Spyder?style=social">
-</a>
-
-<a href="https://github.com/DaniArt/Spyder/issues">
-<img src="https://img.shields.io/github/issues/YOUR_USERNAME/Spyder">
-</a>
-
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"/>
+  </a>
+  <a href="https://github.com/DaniArt/Spyder">
+    <img src="https://img.shields.io/badge/python-3.10%2B-blue.svg" alt="Python"/>
+  </a>
+  <a href="https://github.com/DaniArt/Spyder">
+    <img src="https://img.shields.io/badge/platform-Windows-0078D6.svg" alt="Platform"/>
+  </a>
+  <a href="https://github.com/DaniArt/Spyder">
+    <img src="https://img.shields.io/badge/framework-VCL-orange.svg" alt="Framework"/>
+  </a>
+  <a href="https://github.com/DaniArt/Spyder">
+    <img src="https://img.shields.io/badge/domain-Test%20Automation-green.svg" alt="Domain"/>
+  </a>
+  <a href="https://github.com/DaniArt/Spyder">
+    <img src="https://img.shields.io/badge/status-Development-yellow.svg" alt="Status"/>
+  </a>
 </p>
+
+<p align="center">
+  <b>Modern VCL object inspection for Windows Desktop Automation</b>
+</p>
+
+
 
 
 <p align="center">
