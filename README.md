@@ -73,7 +73,8 @@ Spyder brings modern automation capabilities to these systems.
 </p>
 
 ```sh
-git .NET SDK 8 git clone https://github.com/DaniArt/Spyder.git
+git .NET SDK 8 
+git clone https://github.com/DaniArt/Spyder.git
 cd Spyder
 dotnet restore
 dotnet build
