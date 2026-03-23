@@ -424,3 +424,8 @@ FodyWeavers.xsd
 *.vs/
 *.idea/
 
+# Custom Spyder
+**/*.bak
+backup/**
+VclHook/logs/**
+logs/**
