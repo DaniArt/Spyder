@@ -1,0 +1,21 @@
+<Window x:Class="Spy.UI.OverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+		Opacity="0"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False"
+        Topmost="True"
+        ResizeMode="NoResize"
+        Left="0" Top="0"
+        Width="{x:Static SystemParameters.VirtualScreenWidth}"
+        Height="{x:Static SystemParameters.VirtualScreenHeight}">
+    <Canvas>
+        <Rectangle x:Name="Rect"
+                   Stroke="Cyan"
+                   StrokeThickness="2"
+                   Fill="#2000FFFF"
+                   Visibility="Collapsed"/>
+    </Canvas>
+</Window>

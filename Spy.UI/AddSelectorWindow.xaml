@@ -1,0 +1,33 @@
+<Window x:Class="Spy.UI.AddSelectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Selector"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow">
+    <Border Background="#132A52" Padding="12">
+        <StackPanel>
+            <TextBlock Text="Display name:" Foreground="White" Margin="0,0,0,4"/>
+            <TextBox x:Name="TxtName" Margin="0,0,0,8" MinWidth="260"/>
+
+            <TextBlock Text="Description (optional):" Foreground="White" Margin="0,0,0,4"/>
+            <TextBox x:Name="TxtDescription" Margin="0,0,0,8"/>
+
+            <TextBlock Text="Selector:" Foreground="White" Margin="0,0,0,4"/>
+            <TextBox x:Name="TxtSelector"
+                     IsReadOnly="True"
+                     Background="#17315F"
+                     Foreground="White"
+                     BorderBrush="#17315F"
+                     Margin="0,0,0,8"
+                     TextWrapping="Wrap"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Save" Width="72" Margin="0,0,8,0" Click="BtnSave_Click"/>
+                <Button Content="Cancel" Width="72" Click="BtnCancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>
+
