@@ -217,8 +217,7 @@ Also available in [Русский](docs/ru/) and [Español](docs/es/).
 | Selector generation | Stable |
 | `locator.json` persistence | Stable |
 | VCL introspection (x86) | Active development |
-| x64 target support | In progress |
-| Python client library (`spyder-vcl`) | In progress |
+| Python client library (`spyderun`) | Stable |
 
 ---
 
