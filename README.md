@@ -72,6 +72,16 @@ Spyder brings modern automation capabilities to these systems.
 <img src="docs/images/spyder_install.gif">
 </p>
 
+```sh
+git .NET SDK 8 git clone https://github.com/DaniArt/Spyder.git
+cd Spyder
+dotnet restore
+dotnet build
+dotnet publish Spy.UI -c Release -r win-x86 --self-contained true -p:PublishSingleFile=true
+\VclHook> .\BuildAll-x86.bat
+\VclHook> .\BuildSpyderVclHelper32.bat
+```
+
 ---
 
 ## License
