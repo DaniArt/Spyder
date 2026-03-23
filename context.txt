@@ -1,0 +1,224 @@
+Spyder – рабочий контекст (best‑effort transcript)
+==================================================
+
+Важное примечание:
+Этот файл сформирован из содержимого диалога, доступного ассистенту в текущей сессии. Внутренние системные сообщения среды/IDE (system-reminder), выводы сборок и служебные tool‑логи не включены целиком, кроме случаев, когда они были важны для понимания решения.
+
+---
+
+Пользователь:
+Добавь лог после FindDragTarget(...) в ResolveHitControl: OutputDebugStringA("FindDragTarget: " + ControlInfo(Result)).
+
+Ассистент:
+Сделал. Добавлен OutputDebugStringA после FindDragTarget. Также предложил снизить агрессивность и стабилизировать COLVIR-подобные приложения: разделить hover/capture, budget, backoff.
+
+Пользователь:
+давай
+
+Ассистент:
+1) В VclBridge.c: лимит visited 25000→5000, time budget на deep scan, пропуск ветки !hasRect без углубления, дедлайн разный для capture/hover.
+2) В VclHook.c: backoff на PipeThread после exception (≈1500ms).
+3) Пересобрал x86 (BuildAll-x86.bat).
+
+Пользователь:
+Используй этот промпт… (ResolveVclChain: если bestHit.class TExPanel/TPanel и name KeyPanel/ToolBar — TryFindChildAtPoint и заменить bestHit; реализовать TryFindChildAtPoint через GetChildrenForEngine + HitTest; вернуть если SpeedButton).
+
+Ассистент:
+Реализовано в Spy.UI/VclHelperClient.cs. Сборка Spyder.csproj успешна.
+
+Пользователь:
+Новый промпт… (bestHit.class содержит Panel/ToolBar → TryFindNonHwndChildAtPoint; реализовать get_full_properties в GetFullProperties).
+
+Ассистент:
+Реализовано: TryFindNonHwndChildAtPoint использует GetChildrenForEngine + GetFullProperties и проверяет screen_* bounds. Добавлена команда get_full_properties и модель результата. Сборка успешна.
+
+Пользователь:
+Приложение падает (AV rtl140.bpl).
+
+Ассистент:
+Снижение нагрузки: throttle/лимиты/фильтр классов кандидатов, не abort при fp==null. Пересборка.
+
+Пользователь:
+TGraphicControl не подхватывается, COLVIR крашится.
+
+Ассистент:
+Сделал split команд: hit_test_overlay vs hit_test.
+UI overlay вызывает hit_test_overlay.
+В VclHook добавлена команда hit_test_overlay с g_isCapture=FALSE.
+Пересборка managed и native.
+
+Пользователь:
+Посмотри decomp…
+
+Ассистент:
+Просканировал decomp: подтвердил архитектуру in-proc VCL вызовов через UI-thread dispatch, ControlAtPos/FindDragTarget/GetControlRect, pipe→dispatch→VCL.
+
+Пользователь:
+Сделай так же как тут (только VCL-native hit на hover, deep-refine ограниченно).
+
+Ассистент:
+В VclBridge.c: deep refine отключён для hover (if !g_isCapture refineDeep=FALSE). Пересборка.
+
+Пользователь:
+Логи: get_path короткий, best-effort graphic scan=0, окно сереет/пропадает.
+
+Ассистент:
+Поправка клиентской логики: nested probe для TabControl/Panel/ToolBar, улучшение углубления по детям.
+
+Пользователь:
+Что делает SpyderVclHelper32?
+
+Ассистент:
+Это Delphi helper DLL внутри target VCL процесса: ControlAtPos/FindDragTarget/GetControlRect, parent/children/self, помогает с non-HWND.
+
+Пользователь:
+Неполный chain vs TC пример; сделай безопасное получение свойств как в decomp.
+
+Ассистент:
+Добавлена реконструкция цепочки через parent_self (get_full_properties), ограничения на full_properties, leaf heuristics. Сборка успешна.
+
+Пользователь:
+Нужно ли дорабатывать SpyderVclHelper32?
+
+Ассистент:
+Да: улучшить GetControlRect sanity и Spyder_GetParent fallback, опционально safe child-at-point.
+
+Пользователь:
+давай
+
+Ассистент:
+В SpyderVclHelper32.dpr:
+- Spyder_GetControlRect: TryControlScreenRect + sanity по экрану.
+- Spyder_GetParent: fallback Parent/Owner/GetParentForm.
+Сборка helper + BuildAll-x86 + build Spyder.csproj.
+
+Пользователь:
+Почему TC не крашит (что за COM)?
+
+Ассистент:
+Пояснение: decomp показывает архитектуру, но не все политики. COM не утверждалось как обязательное; главное — UI-thread dispatch + in-proc helper.
+
+Пользователь:
+Как уверенно декомпилировать?
+
+Ассистент:
+Рекомендовал связку static (Ghidra/IDA) + dynamic (x64dbg/WinDbg, API monitor), поиск hook/pipe/dispatch/hit-test.
+
+Пользователь:
+Нет
+
+Ассистент:
+Ок, дальше правим по логам.
+
+Пользователь:
+Сделай как у них: не крашить, вытаскивать дальше и выделять non-HWND.
+
+Ассистент:
+В VclHelperClient.cs добавлен TryFindChildByHit (через hit_test_overlay) и 1–2 шага углубления для контейнеров; fallback на rect-based пробу.
+Сборка успешна.
+
+Пользователь:
+Убери кнопку Diag Log, логи в %LOCALAPPDATA%\\Spyder\\..., чекбокс, оптимизируй подсветку.
+
+Ассистент:
+Удалена кнопка Diag Log и окно.
+Добавлен чекбокс Log to file.
+Логи: %LOCALAPPDATA%\\Spyder\\logs\\spyder.log (единый файл).
+Оптимизация hover: сначала быстрый rect, затем VCL-уточнение; интервал VCL probe увеличен.
+Был найден XAML синтаксис (лишний ]), исправлено.
+
+Пользователь:
+Publish access denied.
+
+Ассистент:
+Причина — файл занят процессом. Рекомендация: закрыть Spyder, очистить publish, повторить publish.
+
+Пользователь:
+Логи положил в папку logs (AV rtl140.bpl).
+
+Ассистент:
+Поправлен выбор bestHit с приоритетами (контейнеры/шум). Сборка.
+
+Пользователь:
+Лог не туда сохраняется.
+
+Ассистент:
+Путь исправлен на %LOCALAPPDATA%\\Spyder\\logs\\spyder.log.
+
+Пользователь:
+Даже с SafeMode крашит.
+
+Ассистент:
+Сделал более жёсткий SafeMode (позже SafeMode был удалён по просьбе пользователя).
+
+Пользователь:
+Добавил backup стабильной версии.
+
+Ассистент:
+Начал анализ diff, выявлены регрессии в VclBridge (VclGetChildControls вместо SafeRead оффсетов) и helper (агрессивный обход Controls[]). Откатил к более безопасным вариантам.
+
+Пользователь:
+Убери SafeMode.
+
+Ассистент:
+SafeMode удалён из UI и кода.
+
+Пользователь:
+Ура: вытаскиваем btnLogin цепочкой, свойства есть, подсветка не всегда.
+
+Ассистент:
+Улучшил TryHitTestForOverlay: если вернулся контейнер, делаем 1–2 шага углубления через TryFindChildByHit и возвращаем leaf для overlay bounds.
+
+Пользователь:
+btnClearFilter уходит в Grouping(...). Логи в logs.
+
+Ассистент:
+Найдена причина: get_children (и частично get_path) отдавали JSON с trailing comma, ломая десериализацию. В VclHook.c исправлено формирование JSON (first/commas). Пересобран VclHook.
+
+Пользователь:
+Сгенерируй документацию docs/en|ru|es, без упоминаний коммерческих продуктов/компаний.
+
+Ассистент:
+Создана папка docs/ с 3 языками и 11 файлами на язык. Убраны упоминания нежелательных названий в коде/скриптах/контексте. Добавлен .gitignore.
+
+Пользователь:
+Где хранится документация?
+
+Ассистент:
+В репозитории: c:\\apps\\Spyder\\docs\\en|ru|es.
+
+Пользователь:
+Можно удалить bin/obj/logs и т.д.?
+
+Ассистент:
+Да, это артефакты сборки/логи. Удалено: Spy.UI\\bin, Spy.UI\\obj, Spy.Core\\bin, Spy.Core\\obj, VclHook\\logs. После удаления сборка dotnet build прошла.
+
+Пользователь:
+Объясни простыми словами, что поменялось (btnClearFilter, btnLogin) и как мне самому править по аналогии.
+
+Ассистент:
+Ключевой фикс btnClearFilter: починка JSON (trailing comma) в get_children/get_path.
+Стабильность: VCL операции в UI-потоке цели через dispatch, ограничение агрессивных обходов, углубление по контейнерам через hit-test вместо массового чтения свойств.
+Где править самому: Spy.UI/VclHelperClient.cs (ResolveVclChain, TryHitTestForOverlay, TryFindChildByHit), VclHook.c (формат JSON команд), VclBridge.c (safety/limits).
+
+Пользователь:
+Проект “чист”?
+
+Ассистент:
+Убраны упоминания брендов, добавлен .gitignore, не хранить декомпы/дампы в репо, рекомендовано LICENSE/NOTICE и т.д.
+
+Пользователь:
+Можно ли перенести VclHook32 и helper в runner?
+
+Ассистент:
+Да, если рядом с runner.exe, имена совпадают, битность совпадает, есть права. Требуются реальные файлы на диске для LoadLibrary. Рекомендовано держать VclHookLoader32.dll рядом тоже.
+
+Пользователь:
+Можно ли уже презентовать в LinkedIn/GitHub?
+
+Ассистент:
+Да как public preview; рекомендовано README/LICENSE/SECURITY/CONTRIBUTING, честные ограничения, релиз-zip.
+
+---
+
+Конец файла.

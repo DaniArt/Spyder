@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Spy.Core/Spy.Core.csproj" />
+  <Project Path="Spy.UI/Spyder.csproj" />
+</Solution>
