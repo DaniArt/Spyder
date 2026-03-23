@@ -35,13 +35,13 @@ It extracts the real VCL component hierarchy directly from application memory, i
 
 ---
 
-## Spyder Inspector
+## 🕷️ Spyder Inspector
 
 ![Spyder UI](docs/images/spyder-ui.png)
 
 ---
 
-## How It Works
+## 🔍 How It Works
 
 Spyder runs a layered capture pipeline with multiple backends. If one fails, the others still produce output.
 
@@ -68,7 +68,7 @@ Target Process (injected, optional)
 
 ---
 
-## Features
+## 🔥 Features
 
 - Deep **VCL component introspection** from live process memory
 - Automatic **32-bit process detection**
@@ -81,7 +81,7 @@ Target Process (injected, optional)
 
 ---
 
-## Quick Start
+## 👉 Quick Start
 
 <p>
 <img src="docs/images/spyder_install.gif">
@@ -127,7 +127,7 @@ Place the three native DLLs from step 3 next to `Spyder.exe`.
 
 ---
 
-## Workflow
+## ⚡ Workflow
 
 1. Launch `Spyder.exe`
 2. *(Optional)* Enable VCL introspection and pick the target process
@@ -138,7 +138,7 @@ Place the three native DLLs from step 3 next to `Spyder.exe`.
 
 ---
 
-## Locator Output
+## 📄 Locator Output
 
 Spyder saves captured elements to a versioned JSON file that can be committed to source control.
 
@@ -164,7 +164,7 @@ Spyder saves captured elements to a versioned JSON file that can be committed to
 
 ---
 
-## Compatibility
+## 📌 Compatibility
 
 | Requirement | Details |
 |---|---|
@@ -178,7 +178,7 @@ Spyder must match the bitness of the target process for VCL introspection to wor
 
 ---
 
-## Limitations
+## ⚠️ Limitations
 
 - Windows desktop only, no cross-platform support
 - VCL introspection is an optional, target-specific subsystem
@@ -188,7 +188,7 @@ Spyder must match the bitness of the target process for VCL introspection to wor
 
 ---
 
-## Documentation
+## 📖 Documentation
 
 | Document | Description |
 |---|---|
@@ -207,7 +207,7 @@ Also available in [Русский](docs/ru/) and [Español](docs/es/).
 
 ---
 
-## Roadmap
+## 🗺️ Roadmap
 
 | Area | Status |
 |---|---|
@@ -222,7 +222,7 @@ Also available in [Русский](docs/ru/) and [Español](docs/es/).
 
 ---
 
-## Contributing
+## 🙋 Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).  
 File bugs and feature requests via [Issues](https://github.com/DaniArt/Spyder/issues).
@@ -231,6 +231,12 @@ When reporting a bug, enable file logging (`%LOCALAPPDATA%\Spyder\logs\spyder.lo
 
 ---
 
-## License
+## 🔐 Security
+
+If you find a security issue, please do not open a public GitHub issue. Report it directly via [GitHub Issues](https://github.com/DaniArt/Spyder/issues) with a private disclosure, or contact the maintainer directly. We appreciate responsible disclosure.
+
+---
+
+## 🔓 License
 
 Spyder is licensed under the [Apache 2.0 License](LICENSE).
